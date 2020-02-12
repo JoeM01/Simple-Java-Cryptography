@@ -1,0 +1,7 @@
+public interface Constants {
+    
+    int wrap_around = 26;
+    int encode_shift = 3;
+    int decode_shift = 23;
+    
+}
