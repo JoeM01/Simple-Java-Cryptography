@@ -1,0 +1,33 @@
+public class Reverser extends Transpose{
+    
+    public Reverser(String s)
+    {
+        super(s);
+    }
+    
+    public String reverseText(String word)
+    {
+        StringBuffer result = new StringBuffer();
+        StringTokenizer words = new StringTokenizer(word);
+        while(words.hasMoreTokens())
+        {
+            String s = words.nextToken() + " ";
+            result.append(super.encode(s));
+        }
+        result.reverse();
+        return result.toString();
+    }
+    
+    public String decode(String word)
+    {
+        StringBuffer result = new StringBuffer();
+        StringTokenizer words = new StringTokenizer(word);
+        while(words.hasMoreTokens())
+        {
+            String s = words.nextToken() + " ";
+            result.append(s);
+        }
+        result.reverse();
+        return result.toString();
+    }
+}
