@@ -1,0 +1,46 @@
+public class Caeser extends Cipher {
+   
+   public Caeser(String s)
+   {
+       super(s);
+   }
+   
+   public String encode(String word)
+   {
+       return code(word, Constants.encode_shift);
+   }
+   
+   public String decode(String word)
+   {
+       return code(word, Constants.decode_shift);
+   }
+   
+   public String code(String word, int shift)
+   {
+       StringBuffer result = new StringBuffer();
+       
+        for(int i = 0; i < word.length(); i++)
+       {
+           char ch = word.charAt(i);
+           ch = determineCharacter(ch, shift);
+           result.append(ch);
+       }
+        return result.toString();
+   }
+   
+   public char determineCharacter(char ch, final int shift)
+   {
+       if(Character.isUpperCase(ch))
+       {
+           ch = (char)('A' + (ch - 'A' + shift)%Constants.wrap_around);
+       }
+       else if(Character.isLowerCase(ch))
+       {
+           ch = (char)('a' + (ch - 'a' + shift)%Constants.wrap_around);
+       }
+       return ch;
+   }
+   
+   
+   
+}
